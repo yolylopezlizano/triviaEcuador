@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trivia de Ecuador / Ecuador Trivia</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<!-- ==================================================
+     PANTALLA INICIAL
+================================================== -->
+
+<div id="language-screen" class="language-screen">
+
+    <div class="language-overlay">
+
+        <div class="welcome-content">
+
+            <div class="ecuador-flag">
+                🇪🇨
+            </div>
+
+            <h1>
+                Trivia de Ecuador
+            </h1>
+
+            <h2>
+                Ecuador Trivia
+            </h2>
+
+            <p class="welcome-subtitle">
+                Descubre la riqueza, cultura y belleza de Ecuador
+            </p>
+
+            <p class="welcome-subtitle-en">
+                Discover the richness, culture and beauty of Ecuador
+            </p>
+
+            <h3>
+                ¿En qué idioma quieres jugar?
+            </h3>
+
+            <p class="welcome-question-en">
+                Choose your language
+            </p>
+
+            <div class="language-options">
+
+                <button
+                    class="language-choice"
+                    onclick="startQuiz('es')">
+
+                    <span class="language-flag">
+                        🇪🇨
+                    </span>
+
+                    <strong>
+                        Español
+                    </strong>
+
+                    <small>
+                        Comenzar trivia
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="language-choice"
+                    onclick="startQuiz('en')">
+
+                    <span class="language-flag">
+                        🇺🇸
+                    </span>
+
+                    <strong>
+                        English
+                    </strong>
+
+                    <small>
+                        Start trivia
+                    </small>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     CONTENEDOR PRINCIPAL
+================================================== -->
+
+<div class="quiz-container">
+
+
+    <!-- SELECTOR DE IDIOMA -->
+
+    <div
+        class="lang-selector"
+        style="display:none;">
+
+        <button
+            id="btn-es"
+            class="lang-btn active"
+            onclick="changeLanguage('es')">
+
+            ES 🇪🇨
+
+        </button>
+
+        <button
+            id="btn-en"
+            class="lang-btn"
+            onclick="changeLanguage('en')">
+
+            EN 🇺🇸
+
+        </button>
+
+    </div>
+
+
+    <!-- INFORMACIÓN DEL BLOQUE -->
+
+    <div
+        class="header-info"
+        id="quiz-header"
+        style="display:none;">
+
+        <span id="block-info">
+            Bloque 1 de 4
+        </span>
+
+        <span id="question-info">
+            Pregunta 1 de 5
+        </span>
+
+    </div>
+
+
+    <!-- ==================================================
+         JUEGO
+    ================================================== -->
+
+    <div
+        id="quiz-gameplay"
+        style="display:none;">
+
+        <img
+            id="quiz-image"
+            class="question-img"
+            src=""
+            alt="Imagen de la pregunta">
+
+
+        <h2 id="question-text">
+            Cargando...
+        </h2>
+
+
+        <!-- OPCIONES -->
+
+        <div
+            class="options-grid"
+            id="options-container">
+        </div>
+
+
+        <!-- MENSAJE DE CORRECTO / INCORRECTO -->
+
+        <div
+            id="feedback"
+            class="feedback">
+        </div>
+
+
+        <!-- TARJETA EDUCATIVA -->
+
+        <div
+            id="correct-info"
+            class="correct-info"
+            style="display:none;">
+
+            <img
+                id="correct-info-image"
+                src=""
+                alt="Imagen relacionada con la respuesta">
+
+            <div class="correct-info-content">
+
+                <h3 id="correct-info-title"></h3>
+
+                <p id="correct-info-fact"></p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PISTA -->
+
+        <div
+            id="hint-box"
+            class="feedback hint-style">
+        </div>
+
+
+        <!-- BOTONES -->
+
+        <div class="controls">
+
+            <button
+                id="home-button"
+                class="action-btn home-btn"
+                onclick="goHome()">
+
+                🏠 Inicio
+
+            </button>
+
+
+            <button
+                id="hint-button"
+                class="action-btn hint-btn"
+                onclick="showHint()">
+
+                💡 Ver Pista
+
+            </button>
+
+
+            <button
+                id="next-button"
+                class="action-btn next-btn"
+                onclick="handleNext()">
+
+                Siguiente ➡️
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         PANTALLA ENTRE BLOQUES / FINAL
+    ================================================== -->
+
+    <div
+        id="quiz-block-screen"
+        style="display:none;">
+
+        <h2 id="block-title">
+            ¡Bloque Completado!
+        </h2>
+
+        <p id="block-score"></p>
+
+        <button
+            id="block-continue-btn"
+            class="action-btn next-btn"
+            style="display:inline-block;"
+            onclick="startNextBlock()">
+
+            Continuar al Siguiente Bloque 🚀
+
+        </button>
+
+        <br><br>
+
+        <button
+            id="block-home-btn"
+            class="action-btn home-btn"
+            style="display:inline-block;"
+            onclick="goHome()">
+
+            🏠 Regresar al Inicio
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="trivia.js"></script>
+
+</body>
+</html>
